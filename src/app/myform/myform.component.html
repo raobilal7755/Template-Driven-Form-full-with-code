@@ -1,0 +1,73 @@
+<h1 class='bg-danger text-white text-center p-4'>Template Driven Form</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- form portion -->
+            <form #temRefVariable='ngForm' (ngSubmit)=myfun(temRefVariable)>
+                <div class="form-group">
+                    <label for="">Username :</label>
+                    <input type="text" name="fname" ngModel id="" class="form-control" placeholder="Enter your name" autocomplete="off" #fname='ngModel' required maxlength='10' 
+                    minlength='3' pattern='Mr.Bilal'>
+                     <!--errors sms  -->
+                    <div class="alert alert-danger" *ngIf="!fname.valid && (fname.touched || fname.dirty)">
+                        <div *ngIf='fname.errors["required"]'>
+                            Please fill the field
+                        </div>
+                        <div *ngIf='fname.errors["minlength"]'>
+                            sir min length is 3 and max 10
+                        </div>
+                        <div *ngIf='fname.errors["pattern"]'>
+                            sir your pattern not correct
+                        </div>
+                        
+                    </div>
+                    <!-- end -->
+                </div>
+
+                <div class="form-group">
+                    <label for="">Lastname :</label>
+                    <input type="text" name="lname" ngModel id="" class="form-control" placeholder="Enter your lname" autocomplete="off" #lname='ngModel' required maxlength='10' 
+                    minlength='3' > 
+                    <!--errors sms  -->
+                    <div class="alert alert-danger" *ngIf="!lname.valid && (lname.touched || lname.dirty)">
+                        <div *ngIf='lname.errors["required"]'>
+                            Please fill the field
+                        </div>
+                        <div *ngIf='lname.errors["minlength"]'>
+                            sir min length is 3 and max 10
+                        </div>
+                        
+                        
+                    </div>
+                    <!-- end -->
+                </div>
+
+                <div class="form-group">
+                    <label for="">Email :</label>
+                    <input type="text" name="email" ngModel id="" class="form-control" placeholder="Enter your email" autocomplete="off" #email='ngModel' required maxlength='20' 
+                    minlength='3' email > 
+
+                    <!--errors sms  -->
+                    <div class="alert alert-danger" *ngIf="!email.valid && (email.touched || email.dirty)">
+                        <div *ngIf='email.errors["required"]'>
+                            Please fill the field
+                        </div>
+                        <div *ngIf='email.errors["minlength"]'>
+                            sir min length is 3 and max 10
+                        </div>
+                        <div *ngIf='email.errors["email"]'>
+                            sir your email pattern not correct
+                        </div>
+                        
+                    </div>
+                    <!-- end -->
+                </div>
+
+                <br>
+                <input type="submit" value="Submit Form" class="btn btn-primary btn-lg" [disabled]='!temRefVariable.validb'>
+            </form>
+            <!-- end form -->
+        </div>
+    </div>
+</div>
